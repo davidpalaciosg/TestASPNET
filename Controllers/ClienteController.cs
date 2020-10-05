@@ -10,11 +10,11 @@ using TestWebApp.Models;
 
 namespace TestWebApp.Controllers
 {
-    public class HomeController : Controller
+    public class ClienteController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<ClienteController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public ClienteController(ILogger<ClienteController> logger)
         {
             _logger = logger;
         }
@@ -29,11 +29,6 @@ namespace TestWebApp.Controllers
             ViewBag.Cosa = "Cosa Dinamica";
 
             return View(cliente);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

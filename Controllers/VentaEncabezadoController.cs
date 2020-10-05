@@ -10,11 +10,11 @@ using TestWebApp.Models;
 
 namespace TestWebApp.Controllers
 {
-    public class HomeController : Controller
+    public class VentaEncabezadoController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<VentaEncabezadoController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public VentaEncabezadoController(ILogger<VentaEncabezadoController> logger)
         {
             _logger = logger;
         }
@@ -22,17 +22,6 @@ namespace TestWebApp.Controllers
         public IActionResult Index()
         {
 
-            Calendar calendario = new GregorianCalendar();
-            DateTime fechaNacimiento = new DateTime(2000,09,15);
-            var cliente = new Cliente(1,"David Enrique","Palacios Garcia",fechaNacimiento);
-
-            ViewBag.Cosa = "Cosa Dinamica";
-
-            return View(cliente);
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 

@@ -15,7 +15,7 @@ namespace TestWebApp.Models
             this.fecha_reg = DateTime.Now;
         }
         public int id { get; set; }
-        public DateTime fechaVenta { get; set; };
+        public DateTime fechaVenta { get; set; }
         public Cliente cliente { get; set; }
         public string descripcionVenta { get; set; }
         public int num_productos { get; set; }
