@@ -22,7 +22,6 @@ namespace TestWebApp.Controllers
         public IActionResult Index()
         {
 
-            Calendar calendario = new GregorianCalendar();
             DateTime fechaNacimiento = new DateTime(2000,09,15);
             var cliente = new Cliente(1,"David Enrique","Palacios Garcia",fechaNacimiento);
 

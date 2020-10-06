@@ -21,14 +21,12 @@ namespace TestWebApp.Controllers
 
         public IActionResult Index()
         {
+           var clientes = new List<Cliente>(){
+               new Cliente(0,"David Enrique", "Palacios Garcia", new DateTime(2000,09,15).Date),
+               new Cliente(1, "Francisco", "Ruiz", new DateTime(1970,01,01).Date)
+           };
 
-            Calendar calendario = new GregorianCalendar();
-            DateTime fechaNacimiento = new DateTime(2000,09,15);
-            var cliente = new Cliente(1,"David Enrique","Palacios Garcia",fechaNacimiento);
-
-            ViewBag.Cosa = "Cosa Dinamica";
-
-            return View(cliente);
+            return View(clientes);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -36,5 +34,7 @@ namespace TestWebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
     }
 }
