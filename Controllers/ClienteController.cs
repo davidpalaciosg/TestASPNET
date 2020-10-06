@@ -12,19 +12,20 @@ namespace TestWebApp.Controllers
 {
     public class ClienteController : Controller
     {
+        //Database Context
+        private TestContext _context;
         private readonly ILogger<ClienteController> _logger;
 
-        public ClienteController(ILogger<ClienteController> logger)
+        //Constructor
+        public ClienteController(ILogger<ClienteController> logger, TestContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-           var clientes = new List<Cliente>(){
-               new Cliente(0,"David Enrique", "Palacios Garcia", new DateTime(2000,09,15).Date),
-               new Cliente(1, "Francisco", "Ruiz", new DateTime(1970,01,01).Date)
-           };
+           var clientes = _context.clientes;
 
             return View(clientes);
         }

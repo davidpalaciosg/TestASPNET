@@ -4,19 +4,22 @@ namespace TestWebApp.Models
 {
     public class VentaEncabezado
     {
-        public VentaEncabezado(int id, DateTime fechaVenta, Cliente cliente, string descripcionVenta, int num_productos, double totalVenta)
+        public VentaEncabezado(string Id, DateTime fechaVenta, string clienteNombre,string clienteApellido, string descripcionVenta, int num_productos, double totalVenta)
         {
-            this.id = id;
+            this.Id = Id;
             this.fechaVenta = fechaVenta;
-            this.cliente = cliente;
+            this.clienteNombre = clienteNombre;
+            this.clienteApellido = clienteApellido;
             this.descripcionVenta = descripcionVenta;
             this.num_productos = num_productos;
             this.totalVenta = totalVenta;
             this.fecha_reg = DateTime.Now;
         }
-        public int id { get; set; }
+        public string Id { get; set; }
         public DateTime fechaVenta { get; set; }
-        public Cliente cliente { get; set; }
+        public string clienteNombre { get; set; }
+         public string clienteApellido { get; set; }
+
         public string descripcionVenta { get; set; }
         public int num_productos { get; set; }
         public double totalVenta { get; set; }

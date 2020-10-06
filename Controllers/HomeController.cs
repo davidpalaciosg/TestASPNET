@@ -13,17 +13,19 @@ namespace TestWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private TestContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, TestContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
 
             DateTime fechaNacimiento = new DateTime(2000,09,15);
-            var cliente = new Cliente(1,"David Enrique","Palacios Garcia",fechaNacimiento);
+            var cliente = new Cliente("1","David Enrique","Palacios Garcia",fechaNacimiento);
 
             ViewBag.Cosa = "Cosa Dinamica";
 

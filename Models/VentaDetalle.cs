@@ -2,11 +2,11 @@ using System;
 
 namespace TestWebApp.Models
 {
-    public class VentasDetalle
+    public class VentaDetalle
     {
-        public VentasDetalle(int id, Producto producto, int cantidad, float valorUnitario, float impuesto, float valorTotal)
+        public VentaDetalle(string Id, string producto, int cantidad, float valorUnitario, float impuesto, float valorTotal)
         {
-            this.id = id;
+            this.Id = Id;
             this.producto = producto;
             this.cantidad = cantidad;
             this.valorUnitario = valorUnitario;
@@ -14,8 +14,8 @@ namespace TestWebApp.Models
             this.valorTotal = valorTotal;
             this.fecha_reg = DateTime.Now;
         }
-        public int id { get; set; }
-        public Producto producto { get; set; }
+        public string Id { get; set; }
+        public string producto { get; set; }
         public int cantidad { get; set; }
         public float valorUnitario { get; set; }
         public float impuesto { get; set; }

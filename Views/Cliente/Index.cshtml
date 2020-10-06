@@ -1,4 +1,4 @@
-﻿@model List<Cliente>
+﻿@model IEnumerable<Cliente>
 
 @{
     ViewData["Title"] = "Clientes";
@@ -20,7 +20,7 @@
             @foreach (var cliente in @Model)
                 {
                     <tr class="filaDatos">
-                        <td>@cliente.idCliente</td>
+                        <td>@cliente.Id</td>
                         <td>@cliente.nombreCliente</td>
                         <td>@cliente.apellidoCliente</td>
                         <td>@cliente.fechaNacimiento.ToShortDateString()</td>

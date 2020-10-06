@@ -13,16 +13,18 @@ namespace TestWebApp.Controllers
     public class ProductoController : Controller
     {
         private readonly ILogger<ProductoController> _logger;
+        private TestContext _context;
 
-        public ProductoController(ILogger<ProductoController> logger)
+        public ProductoController(ILogger<ProductoController> logger, TestContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-
-            return View();
+            var productos = _context.productos.ToList();
+            return View(productos);
         }
 
 

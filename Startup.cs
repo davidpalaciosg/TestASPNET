@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TestWebApp.Models;
 
 namespace TestWebApp
 {
@@ -24,6 +26,12 @@ namespace TestWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            
+            //Adicionar Contexto de la base de datos
+            services.AddDbContext<TestContext>(
+                options => options.UseInMemoryDatabase(databaseName: "testDB")
+            );
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

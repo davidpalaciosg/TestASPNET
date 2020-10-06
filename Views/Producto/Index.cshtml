@@ -1,11 +1,92 @@
-﻿@model List<Producto>
+﻿@model IEnumerable<Producto>
 
 @{
     ViewData["Title"] = "Productos";
 }
-
-<div class="text-center">
+<style>
+    img{
+        width:100px;
+        height: 100px;
+    }
+</style>
+<div class="text-center container">
     <h1 class="display-4">Productos</h1>
- 
-
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Imágen</th>
+            <th scope="col">Observaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var producto in @Model)
+                {
+                    <tr class="filaDatos">
+                        <td>@producto.Id</td>
+                        <td>@producto.nombreProducto</td>
+                        <td><img src = "@producto.imagenProducto" id="imagenProducto"></td>
+                        <td>@producto.observacionesProducto</td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+    </div>
+    <p></p>
+    <div class="row"> 
+        <div class="col-sm">
+            <input type="text" class="form-control" id="idproducto" placeholder="ID" readonly>
+         </div>
+        <div class="col-sm">
+            <input type="text" class="form-control" id="Nombre" placeholder="Nombre de Producto">
+         </div>
+        <div class="col-sm">
+            <input type="text" class="form-control" id="ImagenURL" placeholder="Imagen URL">
+         </div>
+        <div class="col-sm">
+            <input type="text" class="form-control" id="Observaciones" placeholder="Observaciones">
+        </div>
+    </div>
+    <p></p>
+    <p></p>
+    <div class="row">
+        <div class="col-sm">
+            <button type="button" class="btn btn-success" id="botonAnadir">Añadir</button>
+        </div>
+        <div class="col-sm">
+            <button type="button" class="btn btn-primary" id="botonModificar">Modificar</button>
+        </div>
+        <div class="col-sm">
+            <button type="button" class="btn btn-danger" id="botonEliminar">Eliminar</button>
+        </div>
+    </div>
 </div>
+<script type="text/javascript">
+            
+            //Actualizar campos cuando se elige un registro
+            $(".filaDatos").click(function () {
+                var $data=[];
+                var filaDatos = $(this);
+                var cells = filaDatos.find('td');
+                var url =filaDatos.find("img").attr("src");
+                $(cells).each(function(){
+                    var $d = $(this).val()||$(this).text();
+                    $data.push($d);
+                });
+                $("#idproducto").val($data[0]); //ID
+                $("#Nombre").val($data[1]); //Nombre
+                $("#ImagenURL").val(url); //URL
+                $("#Observaciones").val($data[3]); //Observaciones
+            });
+
+            //Click en botón Añadir
+            $("#botonAnadir").click(function(){
+                var id =  $("#idproducto").val();
+                var nombre = $("#Nombre").val();
+                var apellido = $("#ImagenURL").attr("src");
+                var fecha = $("#Observaciones").val();
+            });
+
+ </script>

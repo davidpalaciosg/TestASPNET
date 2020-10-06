@@ -13,16 +13,18 @@ namespace TestWebApp.Controllers
     public class VentaEncabezadoController : Controller
     {
         private readonly ILogger<VentaEncabezadoController> _logger;
+        private TestContext _context;
 
-        public VentaEncabezadoController(ILogger<VentaEncabezadoController> logger)
+        public VentaEncabezadoController(ILogger<VentaEncabezadoController> logger, TestContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-
-            return View();
+            var ventasEncabezado = _context.ventasEncabezados.ToList();
+            return View(ventasEncabezado);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

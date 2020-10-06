@@ -13,16 +13,18 @@ namespace TestWebApp.Controllers
     public class VentaDetalleController : Controller
     {
         private readonly ILogger<VentaDetalleController> _logger;
+        private TestContext _context;
 
-        public VentaDetalleController(ILogger<VentaDetalleController> logger)
+        public VentaDetalleController(ILogger<VentaDetalleController> logger, TestContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-
-            return View();
+            var ventasDetalle = _context.ventasDetalles.ToList();
+            return View(ventasDetalle);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

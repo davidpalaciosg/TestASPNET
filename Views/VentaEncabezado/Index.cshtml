@@ -1,9 +1,104 @@
-﻿@model VentaEncabezado
+﻿@model IEnumerable<VentaEncabezado>
 
 @{
     ViewData["Title"] = "Ventas Encabezado";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Ventas Encabezado</h1>
+<div class="text-center container">
+    <h1 class="display-4">Encabezado de Ventas</h1>
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fecha de Venta</th>
+            <th scope="col">Nombre Cliente</th>
+            <th scope="col">Apellido Cliente</th>
+            <th scope="col">Número de productos</th>
+            <th scope="col">Total Venta (COP)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var venta in @Model)
+                {
+                    <tr class="filaDatos">
+                        <td>@venta.Id</td>
+                        <td>@venta.fechaVenta.ToShortDateString()</td>
+                        <td>@venta.clienteNombre</td>
+                        <td>@venta.clienteApellido</td>
+                        <td>@venta.num_productos</td>
+                        <td>@venta.totalVenta</td>   
+                    </tr>
+                }
+        </tbody>
+    </table>
+    </div>
+    <p></p>
+    <div class="row"> 
+        <div class="col-sm">
+            <input type="text" class="form-control" id="idCliente" placeholder="ID" readonly>
+         </div>
+        <div class="col-sm">
+            <input type="text" class="form-control" id="Nombre" placeholder="Nombres">
+         </div>
+        <div class="col-sm">
+            <input type="text" class="form-control" id="Apellido" placeholder="Apellidos">
+         </div>
+        <div class="col-sm">
+            <input type="text" class="form-control" id="datepicker" placeholder="Fecha de Nacimiento">
+        </div>
+    </div>
+    <p></p>
+    <p></p>
+    <div class="row">
+        <div class="col-sm">
+            <button type="button" class="btn btn-success" id="botonAnadir">Añadir</button>
+        </div>
+        <div class="col-sm">
+            <button type="button" class="btn btn-primary" id="botonModificar">Modificar</button>
+        </div>
+        <div class="col-sm">
+            <button type="button" class="btn btn-danger" id="botonEliminar">Eliminar</button>
+        </div>
+    </div>
 </div>
+<script type="text/javascript">
+
+            //Activa el datepicker con jQuery UI
+            $("#datepicker").datepicker({
+                changeMonth:true,
+                changeYear:true,
+                showButtonPanel:true,
+             });
+            
+            //Actualizar campos cuando se elige un registro
+            $(".filaDatos").click(function () {
+                var $data=[];
+                var filaDatos = $(this);
+                var cells = filaDatos.find('td');
+                $(cells).each(function(){
+                    var $d = $(this).val()||$(this).text();
+                    $data.push($d);
+                });
+                $("#idCliente").val($data[0]);
+                $("#Nombre").val($data[1]);
+                $("#Apellido").val($data[2]);
+                $("#datepicker").val($data[3]);
+            });
+
+            //Click en botón Añadir
+            $("#botonAnadir").click(function(){
+                var id =  $("#idCliente").val();
+                var nombre = $("#Nombre").val();
+                var apellido = $("#Apellido").val();
+
+                var fecha = $("#datepicker").val();
+                var arregloFecha = fecha.split("/");
+                var anio = arregloFecha[2];
+                var mes = arregloFecha[1]-1;
+                var dia = arregloFecha[0];
+
+                var fechaDate = new Date(anio, mes, dia); // fecha será de tipo Datos     
+            });
+
+ </script>
