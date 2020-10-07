@@ -40,9 +40,10 @@ namespace TestWebApp.Controllers
         {
             if (ModelState.IsValid) //Si hay éxito en el modelo
             {
+                //Guardar Encabezado en la BD
                 var LastRegister = _context.ventasEncabezados
-           .OrderByDescending(x => x.Id)
-                                   .FirstOrDefault();
+                .OrderByDescending(x => x.Id)
+                .FirstOrDefault();
 
                 var ultimoId = LastRegister.Id;
                 var nuevoId = (Int32.Parse(ultimoId)) + 1;
@@ -50,10 +51,30 @@ namespace TestWebApp.Controllers
 
                 venta.fechaVenta = createDateTime(venta.stringFechaVenta);
                 venta.fecha_reg = DateTime.Now;
+                venta.num_productos=venta.cantidad;
+                
 
                 _context.ventasEncabezados.Add(venta);
+
+                //Guardar Detalles en la BD
+                 var registroDetalles = new VentaDetalle(
+                     venta.Id,
+                     venta.clienteNombre,
+                     venta.clienteApellido,
+                     venta.stringFechaVenta,
+                     venta.producto,
+                     venta.cantidad,
+                     venta.valorUnitario,
+                     venta.impuesto,
+                     venta.totalVenta);
+
+                _context.ventasDetalles.Add(registroDetalles);
+
+
+
                 _context.SaveChanges();
                 return RedirectToAction("Index");
+
             }
             return View(venta);
         }

@@ -43,14 +43,14 @@ namespace TestWebApp.Models
 
             //Sembrar Ventas Encabezado
             var ventasEncabezado = new List<VentaEncabezado>();
-            ventasEncabezado.Add(new VentaEncabezado("1","01-06-2020","David Enrique","Palacios García","Compró un iPhone X",1,2200000));
-            ventasEncabezado.Add(new VentaEncabezado("2","10-09-2020","Francisco","Ruiz","Compró un Macbook",1,4200000));
-            ventasEncabezado.Add(new VentaEncabezado("3","04-08-2020","Francisco","Ruiz","Compró unos Airpods",1,600000));
+            ventasEncabezado.Add(new VentaEncabezado("1","15-09-2020","David Enrique","Palacios García","Compró un iPhone X",2200000,"iPhone X",1,2000000,200000));
+            ventasEncabezado.Add(new VentaEncabezado("2","10-09-2020","Francisco","Ruiz","Compró un Macbook",4200000,"Macbook Pro",1,4000000,200000));
+            ventasEncabezado.Add(new VentaEncabezado("3","04-08-2020","Francisco","Ruiz","Compró unos Airpods",600000,"Airpods",1,500000,100000));
             modelBuilder.Entity<VentaEncabezado>().HasData(ventasEncabezado.ToArray());
 
             //Sembrar Ventas Detalle
             var ventasDetalle = new List<VentaDetalle>();
-            ventasDetalle.Add(new VentaDetalle("1","David Enrique","Palacios García","01-06-2020","iPhone X",1,2000000,200000,2200000));
+            ventasDetalle.Add(new VentaDetalle("1","David Enrique","Palacios García","15-09-2020","iPhone X",1,2000000,200000,2200000));
             ventasDetalle.Add(new VentaDetalle("2","Francisco","Ruiz","10-09-2020", "Macbook",1,4000000,200000,4200000));
             ventasDetalle.Add(new VentaDetalle("3","Francisco","Ruiz","04-08-2020","Airpods",1,500000,100000,600000));
             modelBuilder.Entity<VentaDetalle>().HasData(ventasDetalle.ToArray());
