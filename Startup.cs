@@ -27,10 +27,16 @@ namespace TestWebApp
         {
             services.AddControllersWithViews();
             
-            //Adicionar Contexto de la base de datos
-            services.AddDbContext<TestContext>(
-                options => options.UseInMemoryDatabase(databaseName: "testDB")
-            );
+            //Adicionar Contexto de la base de datos en MEMORIA
+             services.AddDbContext<TestContext>(
+                 options => options.UseInMemoryDatabase(databaseName: "testDB")
+             );
+
+            //Connect to SQL SERVER (MS AZURE)
+            // string connString = ConfigurationExtensions.GetConnectionString(this.Configuration,"DefaultConnectionString");
+            // services.AddDbContext<TestContext>(
+            //     options => options.UseSqlServer(connString)
+            // );
             
         }
 

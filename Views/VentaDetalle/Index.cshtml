@@ -84,23 +84,4 @@
                 $("#Apellido").val($data[2]);
                 $("#datepicker").val($data[3]);
             });
-
-            //Click en botón Añadir
-            $("#botonAnadir").click(function(){
-                var id =  $("#idCliente").val();
-                var nombre = $("#Nombre").val();
-                var apellido = $("#Apellido").val();
-
-                var fecha = $("#datepicker").val();
-                var arregloFecha = fecha.split("/");
-                var anio = arregloFecha[2];
-                var mes = arregloFecha[1]-1;
-                var dia = arregloFecha[0];
-
-                var fechaDate = new Date(anio, mes, dia); // fecha será de tipo Date
-
-                
-                
-            });
-
  </script>
