@@ -23,7 +23,7 @@ namespace TestWebApp.Models
             int mes = Int32.Parse(fecha[1]);
             int anio = Int32.Parse(fecha[2]);
 
-            this.fechaVenta = new DateTime(anio,mes,dia);
+            this.fechaVenta = new DateTime(anio, mes, dia);
 
         }
         public VentaDetalle()

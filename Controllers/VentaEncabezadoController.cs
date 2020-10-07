@@ -32,12 +32,14 @@ namespace TestWebApp.Controllers
         //Crear Encabezado de ventas
         public IActionResult Create()
         {
+            ViewBag.productos = _context.productos;
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(VentaEncabezado venta)
         {
+            ViewBag.productos = _context.productos;
             if (ModelState.IsValid) //Si hay éxito en el modelo
             {
                 //Guardar Encabezado en la BD
@@ -55,13 +57,17 @@ namespace TestWebApp.Controllers
                 
 
                 _context.ventasEncabezados.Add(venta);
+                //venta.stringfechaventa es en formato yyyy-mm-dd
+                var stringfecha = venta.stringFechaVenta.Split("-");
+                var cadena = stringfecha[2]+"-"+stringfecha[1]+"-"+stringfecha[0];
+                //Se cambia el formato a dd-mm-yyyy
 
                 //Guardar Detalles en la BD
                  var registroDetalles = new VentaDetalle(
                      venta.Id,
                      venta.clienteNombre,
                      venta.clienteApellido,
-                     venta.stringFechaVenta,
+                     cadena,
                      venta.producto,
                      venta.cantidad,
                      venta.valorUnitario,
@@ -82,11 +88,13 @@ namespace TestWebApp.Controllers
         //Editar encabezado de Venta
         public IActionResult Edit()
         {
+            ViewBag.productos = _context.productos;
             return View();
         }
         [HttpPost]
         public IActionResult Edit(VentaEncabezado ventaToUpdate)
         {
+            ViewBag.productos = _context.productos;
             if (ModelState.IsValid)
             {
                 var ventaSearch = from v in _context.ventasEncabezados
