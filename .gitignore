@@ -285,6 +285,6 @@ __pycache__/
 .history
 .ionide
 
-appsettings.Development.json
+#appsettings.Development.json
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,aspnetcore
