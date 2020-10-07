@@ -25,7 +25,7 @@ namespace TestWebApp.Controllers
         {
 
             DateTime fechaNacimiento = new DateTime(2000,09,15);
-            var cliente = new Cliente("1","David Enrique","Palacios Garcia",fechaNacimiento);
+            var cliente = new Cliente("1","David Enrique","Palacios Garcia","09/15/2000");
 
             ViewBag.Cosa = "Cosa Dinamica";
 

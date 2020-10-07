@@ -28,8 +28,8 @@ namespace TestWebApp.Models
             //Sembrar datos en la DB
 
             var clientes = new List<Cliente>();
-            clientes.Add(new Cliente("1","David Enrique", "Palacios Garcia", new DateTime(2000,09,15).Date));
-            clientes.Add(new Cliente("2", "Francisco", "Ruiz", new DateTime(1970,01,01).Date));
+            clientes.Add(new Cliente("1","David Enrique", "Palacios Garcia", "09/15/2000"));
+            clientes.Add(new Cliente("2", "Francisco", "Ruiz", "10/10/1985"));
             
             //Sembrar Clientes
            modelBuilder.Entity<Cliente>().HasData(clientes.ToArray());

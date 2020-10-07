@@ -30,43 +30,40 @@
     </table>
     </div>
     <p></p>
-    <div class="row"> 
-        <div class="col-sm">
-            <input type="text" class="form-control" id="idCliente" placeholder="ID" readonly>
-         </div>
-        <div class="col-sm">
-            <input type="text" class="form-control" id="Nombre" placeholder="Nombres">
-         </div>
-        <div class="col-sm">
-            <input type="text" class="form-control" id="Apellido" placeholder="Apellidos">
-         </div>
-        <div class="col-sm">
-            <input type="text" class="form-control" id="datepicker" placeholder="Fecha de Nacimiento">
+    <form method="POST">
+        
+        <div class="row"> 
+            <div class="col-sm">
+                <input type="text" class="form-control" id="idCliente" placeholder="ID" readonly>
+            </div>
+            <div class="col-sm">
+                <input type="text" class="form-control" id="Nombre" placeholder="Nombres" readonly>
+            </div>
+            <div class="col-sm">
+                <input type="text" class="form-control" id="Apellido" placeholder="Apellidos" readonly>
+            </div>
+            
+            <div class="col-sm">
+                <input type="text" class="form-control" id="datepicker" placeholder="Fecha de Nacimiento" readonly>
+            </div>
         </div>
-    </div>
-    <p></p>
-    <p></p>
-    <div class="row">
-        <div class="col-sm">
-            <button type="button" class="btn btn-success" id="botonAnadir">Añadir</button>
+        <p></p>
+        <p></p>
+        <div class="row">
+            <div class="col-sm">
+                <a asp-controller="Cliente" asp-action="Create" ><button type="button" class="btn btn-success" id="botonAnadir">Añadir</button></a>
+            </div>
+            <div class="col-sm">
+                <a asp-controller="Cliente" asp-action="Edit" ><button type="button" class="btn btn-primary " id="botonModificar">Modificar</button></a>
+            </div>
+            <div class="col-sm">
+                <a asp-controller="Cliente" asp-action="Delete" ><button type="button" class="btn btn-danger" id="botonEliminar">Eliminar</button></a>
+            </div>
         </div>
-        <div class="col-sm">
-            <button type="button" class="btn btn-primary" id="botonModificar">Modificar</button>
-        </div>
-        <div class="col-sm">
-            <button type="button" class="btn btn-danger" id="botonEliminar">Eliminar</button>
-        </div>
-    </div>
+    </form>
 </div>
 <script type="text/javascript">
-
-            //Activa el datepicker con jQuery UI
-            $("#datepicker").datepicker({
-                changeMonth:true,
-                changeYear:true,
-                showButtonPanel:true,
-             });
-            
+ 
             //Actualizar campos cuando se elige un registro
             $(".filaDatos").click(function () {
                 var $data=[];
@@ -81,23 +78,4 @@
                 $("#Apellido").val($data[2]);
                 $("#datepicker").val($data[3]);
             });
-
-            //Click en botón Añadir
-            $("#botonAnadir").click(function(){
-                var id =  $("#idCliente").val();
-                var nombre = $("#Nombre").val();
-                var apellido = $("#Apellido").val();
-
-                var fecha = $("#datepicker").val();
-                var arregloFecha = fecha.split("/");
-                var anio = arregloFecha[2];
-                var mes = arregloFecha[1]-1;
-                var dia = arregloFecha[0];
-
-                var fechaDate = new Date(anio, mes, dia); // fecha será de tipo Date
-
-                
-                
-            });
-
  </script>

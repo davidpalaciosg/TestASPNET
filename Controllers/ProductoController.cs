@@ -23,7 +23,7 @@ namespace TestWebApp.Controllers
 
         public IActionResult Index()
         {
-            var productos = _context.productos.ToList();
+            var productos = _context.productos;
             return View(productos);
         }
 

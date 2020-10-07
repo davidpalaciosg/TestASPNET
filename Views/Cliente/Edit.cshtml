@@ -1,0 +1,41 @@
+﻿@model Cliente
+
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<div class="text-center container">
+    <h1 class="display-4">Editar Cliente</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label asp-for="Id">Id del Cliente</label>
+            <input asp-for="Id" type="text" class="form-control" id="IdCliente" placeholder="Id del Cliente" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <label asp-for="nombreCliente">Nombres</label>
+            <input asp-for="nombreCliente" type="text" class="form-control" id="nombreCliente" placeholder="Nombres del Cliente" required>
+            </div>
+           <div class="form-group col-md-6">
+            <label asp-for="apellidoCliente">Apellidos</label>
+            <input asp-for="apellidoCliente" type="text" class="form-control" id="apellidosCliente" placeholder="Apellidos del Cliente" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input asp-for="stringfechaNacimiento" type="date" class="form-control" id="fechaNacimiento" placeholder="Fecha de Nacimiento" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+            </div>
+            <div class="form-group col-md-6">
+                <a asp-controller="Cliente" asp-action="Index" ><button type="button" class="btn btn-success btn-lg">Volver</button></a>
+            </div>
+        </div>
+</form>
+
+
+    
+    
+</div>
