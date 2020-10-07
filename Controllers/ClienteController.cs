@@ -84,8 +84,9 @@ namespace TestWebApp.Controllers
                     cliente.stringfechaNacimiento = clientetoUpdate.stringfechaNacimiento;
                     cliente.fechaNacimiento = createDateTime(clientetoUpdate.stringfechaNacimiento);
                     _context.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                
             }
             return View(clientetoUpdate);
         }

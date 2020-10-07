@@ -43,9 +43,9 @@ namespace TestWebApp.Models
 
             //Sembrar Ventas Encabezado
             var ventasEncabezado = new List<VentaEncabezado>();
-            ventasEncabezado.Add(new VentaEncabezado("1",new DateTime(2020,10,6),"David Enrique","Palacios García","Compró un iPhone X",1,2200000));
-            ventasEncabezado.Add(new VentaEncabezado("2",new DateTime(2020,09,6),"Francisco","Ruiz","Compró un Macbook",1,4200000));
-            ventasEncabezado.Add(new VentaEncabezado("3",new DateTime(2020,09,8),"Francisco","Ruiz","Compró unos Airpods",1,600000));
+            ventasEncabezado.Add(new VentaEncabezado("1","01/06/2020","David Enrique","Palacios García","Compró un iPhone X",1,2200000));
+            ventasEncabezado.Add(new VentaEncabezado("2","10/09/2020","Francisco","Ruiz","Compró un Macbook",1,4200000));
+            ventasEncabezado.Add(new VentaEncabezado("3","04/08/2020","Francisco","Ruiz","Compró unos Airpods",1,600000));
             modelBuilder.Entity<VentaEncabezado>().HasData(ventasEncabezado.ToArray());
 
             //Sembrar Ventas Detalle

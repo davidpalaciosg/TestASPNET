@@ -36,40 +36,36 @@
     <p></p>
     <div class="row"> 
         <div class="col-sm">
-            <input type="text" class="form-control" id="idCliente" placeholder="ID" readonly>
+            <input type="text" class="form-control" id="idVenta" placeholder="ID" readonly>
          </div>
         <div class="col-sm">
-            <input type="text" class="form-control" id="Nombre" placeholder="Nombres" readonly>
+            <input type="text" class="form-control" id="fechaVenta" placeholder="Fecha de Venta" readonly>
          </div>
         <div class="col-sm">
-            <input type="text" class="form-control" id="Apellido" placeholder="Apellidos" readonly>
+            <input type="text" class="form-control" id="clienteNombre" placeholder="Nombres" readonly>
          </div>
         <div class="col-sm">
-            <input type="text" class="form-control" id="datepicker" placeholder="Fecha de Nacimiento" readonly>
+            <input type="text" class="form-control" id="clienteApellido" placeholder="Apellidos" readonly>
+        </div>
+        <div class="col-sm">
+            <input type="text" class="form-control" id="totalVenta" placeholder="Total Venta" readonly>
         </div>
     </div>
     <p></p>
     <p></p>
     <div class="row">
         <div class="col-sm">
-            <button type="button" class="btn btn-success" id="botonAnadir">Añadir</button>
+             <a asp-controller="VentaEncabezado" asp-action="Create" ><button type="button" class="btn btn-success" id="botonAnadir">Añadir</button></a>
         </div>
         <div class="col-sm">
-            <button type="button" class="btn btn-primary" id="botonModificar">Modificar</button>
+            <a asp-controller="VentaEncabezado" asp-action="Edit" ><button type="button" class="btn btn-primary" id="botonModificar">Modificar</button></a>
         </div>
         <div class="col-sm">
-            <button type="button" class="btn btn-danger" id="botonEliminar">Eliminar</button>
+            <a asp-controller="VentaEncabezado" asp-action="Delete" ><button type="button" class="btn btn-danger" id="botonEliminar">Eliminar</button></a>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-
-            //Activa el datepicker con jQuery UI
-            $("#datepicker").datepicker({
-                changeMonth:true,
-                changeYear:true,
-                showButtonPanel:true,
-             });
             
             //Actualizar campos cuando se elige un registro
             $(".filaDatos").click(function () {
@@ -80,9 +76,10 @@
                     var $d = $(this).val()||$(this).text();
                     $data.push($d);
                 });
-                $("#idCliente").val($data[0]);
-                $("#Nombre").val($data[1]);
-                $("#Apellido").val($data[2]);
-                $("#datepicker").val($data[3]);
+                $("#idVenta").val($data[0]);
+                $("#fechaVenta").val($data[1]);
+                $("#clienteNombre").val($data[2]);
+                $("#clienteApellido").val($data[3]);
+                $("#totalVenta").val($data[5]);
             });
  </script>

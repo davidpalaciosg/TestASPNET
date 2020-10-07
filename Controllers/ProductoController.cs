@@ -45,7 +45,6 @@ namespace TestWebApp.Controllers
                 var ultimoId = LastRegister.Id;
                 var nuevoId = (Int32.Parse(ultimoId)) + 1;
                 producto.Id = nuevoId.ToString();
-                Console.WriteLine("Activo: "+ producto.activo);
                 _context.productos.Add(producto);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
@@ -67,7 +66,7 @@ namespace TestWebApp.Controllers
                                     where p.Id == productoToUpdate.Id
                                     select p;
                 var producto = productoSearch.SingleOrDefault();
-                if(producto!=null) //Si el cliente existe
+                if(producto!=null) //Si el producto existe
                 {
                     producto.Id = productoToUpdate.Id;
                     producto.nombreProducto=productoToUpdate.nombreProducto;

@@ -1,0 +1,28 @@
+﻿@model VentaEncabezado
+
+@{
+    ViewData["Title"] = "Eliminar Venta (Encabezado)";
+}
+<div asp-validation-summary="All"></div>
+<div class="text-center container">
+    <h1 class="display-4">Eliminar Venta (Encabezado)</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label asp-for="Id">Id de la Venta</label>
+            <input asp-for="Id" type="text" class="form-control" id="Id" placeholder="Id de la Venta" required>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+            </div>
+            <div class="form-group col-md-6">
+                <a asp-controller="VentaEncabezado" asp-action="Index" ><button type="button" class="btn btn-success btn-lg">Volver</button></a>
+            </div>
+        </div>
+</form>
+
+
+    
+    
+</div>
