@@ -58,11 +58,7 @@ namespace TestWebApp.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View(cliente);
-            }
-           
+            return View(cliente);
         }
 
         //Editar Cliente

@@ -17,7 +17,9 @@
             <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Imágen</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Activo</th>
             <th scope="col">Observaciones</th>
             </tr>
         </thead>
@@ -28,6 +30,8 @@
                         <td>@producto.Id</td>
                         <td>@producto.nombreProducto</td>
                         <td><img src = "@producto.imagenProducto" id="imagenProducto"></td>
+                        <td>@producto.descripcionProducto</td>
+                        <td>@producto.activo</td>
                         <td>@producto.observacionesProducto</td>
                     </tr>
                 }
@@ -53,13 +57,13 @@
     <p></p>
     <div class="row">
         <div class="col-sm">
-            <button type="button" class="btn btn-success" id="botonAnadir">Añadir</button>
+             <a asp-controller="Producto" asp-action="Create" ><button type="button" class="btn btn-success" id="botonAnadir">Añadir</button></a>
         </div>
         <div class="col-sm">
-            <button type="button" class="btn btn-primary" id="botonModificar">Modificar</button>
+             <a asp-controller="Producto" asp-action="Edit" ><button type="button" class="btn btn-primary" id="botonModificar">Modificar</button></a>
         </div>
         <div class="col-sm">
-            <button type="button" class="btn btn-danger" id="botonEliminar">Eliminar</button>
+            <a asp-controller="Producto" asp-action="Delete"><button type="button" class="btn btn-danger" id="botonEliminar">Eliminar</button></a>
         </div>
     </div>
 </div>

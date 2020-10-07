@@ -15,6 +15,15 @@ namespace TestWebApp.Models
             this.observacionesProducto = observacionesProducto;
             this.fecha_reg = DateTime.Now;
         }
+        public Producto()
+        {
+            this.Id="0";
+            this.nombreProducto="N/A";
+            this.descripcionProducto="N/A";
+            this.activo=true;
+            this.observacionesProducto="N/A";
+            this.fecha_reg=DateTime.Now;
+        }
         public string Id { get; set; }
         public string nombreProducto { get; set; }
         public string descripcionProducto { get; set; }
