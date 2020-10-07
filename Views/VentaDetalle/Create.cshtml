@@ -1,0 +1,95 @@
+﻿@model VentaDetalle
+
+@{
+    ViewData["Title"] = "Crear Venta (Detalle)";
+}
+<div asp-validation-summary="All"></div>
+<div class="text-center container">
+    <h1 class="display-4">Crear Venta (Detalle)</h1>
+    <form method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+            <label asp-for="stringFechaVenta">Fecha de Venta</label>
+            <input asp-for="stringFechaVenta" type="date" class="form-control" id="fechaVenta" placeholder="Fecha de Venta" required>
+            </div>
+            <div class="form-group col-md-4">
+            <label asp-for="clienteNombre">Nombre del Cliente</label>
+            <input asp-for="clienteNombre" type="text" class="form-control" id="clienteNombre" placeholder="Nombres del Cliente" required>
+            </div>
+           <div class="form-group col-md-4">
+            <label asp-for="clienteApellido">Apellidos del Cliente</label>
+            <input asp-for="clienteApellido" type="text" class="form-control" id="apellidoCliente" placeholder="Apellidos del Cliente" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-sm-3">
+                <label asp-for="cantidad">Cantidad</label>
+                <input asp-for="cantidad" type="number" min=0 class="form-control" id="cantidad" placeholder="Cantidad" required>
+            </div>
+            <div class="form-group col-sm-9">
+                <label asp-for="producto">Nombre del Producto</label>
+                <input asp-for="producto" type="text" class="form-control" id="producto" placeholder="Nombre del Producto" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-sm-3">
+                <label asp-for="valorUnitario">Valor Unitario</label>
+                <input asp-for="valorUnitario" type="number" min=0 class="form-control" id="valorUnitario" placeholder="Valor Unitario" required>
+            </div>
+            <div class="form-group col-sm-3">
+                <label asp-for="impuesto">Impuesto</label>
+                <input asp-for="impuesto" type="number" min=0 class="form-control" id="impuesto" placeholder="Impuesto" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <label asp-for="valorTotal">Valor Total</label>
+                <input asp-for="valorTotal" type="number" min=1 class="form-control" id="valorTotal" placeholder="Valor Total"  readonly required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+            </div>
+            <div class="form-group col-md-6">
+                <a asp-controller="VentaDetalle" asp-action="Index" ><button type="button" class="btn btn-success btn-lg">Volver</button></a>
+            </div>
+        </div>
+</form>
+</div>
+<script>
+    function actualizarTotal(){
+
+        var campoTotal = $("#valorTotal"); 
+        var campoCantidad = $("#cantidad");
+        var campoImpuesto = $("#impuesto");
+        var campoUnitario = $("#valorUnitario");
+
+        var totalActual=1;
+        var cantidadActual=1;
+        var impuestoActual=1;
+        var unitarioActual=0;
+        
+        if(campoCantidad.val()!="")
+            cantidadActual = parseInt(campoCantidad.val());
+        
+        if(campoImpuesto.val()!="")
+            impuestoActual = parseInt(campoImpuesto.val());
+        
+        if(campoUnitario.val()!="")
+            unitarioActual = parseInt(campoUnitario.val());
+        
+        totalActual = cantidadActual * (unitarioActual + impuestoActual);
+        campoTotal.val(totalActual);
+    }
+    $("#cantidad").bind('keyup', function () {
+        actualizarTotal();
+    });
+
+     $("#valorUnitario").bind('keyup', function () {
+        actualizarTotal();        
+    });
+
+    $("#impuesto").bind('keyup', function () {
+        actualizarTotal();      
+    });
+
+</script>

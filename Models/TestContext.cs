@@ -28,8 +28,8 @@ namespace TestWebApp.Models
             //Sembrar datos en la DB
 
             var clientes = new List<Cliente>();
-            clientes.Add(new Cliente("1","David Enrique", "Palacios Garcia", "09/15/2000"));
-            clientes.Add(new Cliente("2", "Francisco", "Ruiz", "10/10/1985"));
+            clientes.Add(new Cliente("1","David Enrique", "Palacios Garcia", "15-09-2000"));
+            clientes.Add(new Cliente("2", "Francisco", "Ruiz", "10-10-1985"));
             
             //Sembrar Clientes
            modelBuilder.Entity<Cliente>().HasData(clientes.ToArray());
@@ -43,16 +43,16 @@ namespace TestWebApp.Models
 
             //Sembrar Ventas Encabezado
             var ventasEncabezado = new List<VentaEncabezado>();
-            ventasEncabezado.Add(new VentaEncabezado("1","01/06/2020","David Enrique","Palacios García","Compró un iPhone X",1,2200000));
-            ventasEncabezado.Add(new VentaEncabezado("2","10/09/2020","Francisco","Ruiz","Compró un Macbook",1,4200000));
-            ventasEncabezado.Add(new VentaEncabezado("3","04/08/2020","Francisco","Ruiz","Compró unos Airpods",1,600000));
+            ventasEncabezado.Add(new VentaEncabezado("1","01-06-2020","David Enrique","Palacios García","Compró un iPhone X",1,2200000));
+            ventasEncabezado.Add(new VentaEncabezado("2","10-09-2020","Francisco","Ruiz","Compró un Macbook",1,4200000));
+            ventasEncabezado.Add(new VentaEncabezado("3","04-08-2020","Francisco","Ruiz","Compró unos Airpods",1,600000));
             modelBuilder.Entity<VentaEncabezado>().HasData(ventasEncabezado.ToArray());
 
             //Sembrar Ventas Detalle
             var ventasDetalle = new List<VentaDetalle>();
-            ventasDetalle.Add(new VentaDetalle("1","iPhone X",1,2000000,200000,2200000));
-            ventasDetalle.Add(new VentaDetalle("2","Macbook",1,4000000,200000,4200000));
-            ventasDetalle.Add(new VentaDetalle("3","Airpods",1,500000,100000,600000));
+            ventasDetalle.Add(new VentaDetalle("1","David Enrique","Palacios García","01-06-2020","iPhone X",1,2000000,200000,2200000));
+            ventasDetalle.Add(new VentaDetalle("2","Francisco","Ruiz","10-09-2020", "Macbook",1,4000000,200000,4200000));
+            ventasDetalle.Add(new VentaDetalle("3","Francisco","Ruiz","04-08-2020","Airpods",1,500000,100000,600000));
             modelBuilder.Entity<VentaDetalle>().HasData(ventasDetalle.ToArray());
 
 

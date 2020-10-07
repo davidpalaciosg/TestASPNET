@@ -24,7 +24,7 @@ namespace TestWebApp.Controllers
         public IActionResult Index()
         {
             var ventasEncabezado = _context.ventasEncabezados
-            .OrderBy(x => x.Id);
+                                    .OrderBy(x => x.Id);
 
             return View(ventasEncabezado);
         }
@@ -109,9 +109,12 @@ namespace TestWebApp.Controllers
                     _context.ventasEncabezados.Remove(ventaSearch.SingleOrDefault());
 
 
-                //Se busca en la tabla de Ventas Detalle el ID del encabezado
+                //Se busca en la tabla de Ventas Detalle el nombre, apellido y fecha de venta del encabezado
+                //Si hay varios registros que coinciden los borra
                 var detallesSearch = from d in _context.ventasDetalles
-                                     where d.Id == ventaToDelete.Id
+                                     where d.clienteNombre == ventaToDelete.clienteNombre
+                                        && d.clienteApellido == ventaToDelete.clienteApellido
+                                        && d.fechaVenta.Date ==  ventaToDelete.fechaVenta.Date
                                      select d;
 
                 if (detallesSearch != null) //Si encontró registros con el mismo ID

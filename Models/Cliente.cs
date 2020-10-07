@@ -11,9 +11,9 @@ namespace TestWebApp.Models
             this.apellidoCliente = apellidoCliente;
             this.stringfechaNacimiento = stringfechaNacimiento;
 
-            var fecha = stringfechaNacimiento.Split("/");
-            int mes = Int32.Parse(fecha[0]);
-            int dia = Int32.Parse(fecha[1]);
+            var fecha = stringfechaNacimiento.Split("-");
+            int dia = Int32.Parse(fecha[0]);
+            int mes = Int32.Parse(fecha[1]);
             int anio = Int32.Parse(fecha[2]);
 
             this.fechaNacimiento = new DateTime(anio,mes,dia);

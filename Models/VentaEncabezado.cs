@@ -10,9 +10,9 @@ namespace TestWebApp.Models
 
             this.stringFechaVenta = fechaVenta;
             
-            var fecha = fechaVenta.Split("/");
-            int mes = Int32.Parse(fecha[0]);
-            int dia = Int32.Parse(fecha[1]);
+            var fecha = fechaVenta.Split("-");
+            int dia = Int32.Parse(fecha[0]);
+            int mes = Int32.Parse(fecha[1]);
             int anio = Int32.Parse(fecha[2]);
 
             this.fechaVenta = new DateTime(anio,mes,dia);
