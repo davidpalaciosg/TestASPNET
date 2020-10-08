@@ -23,17 +23,8 @@ namespace TestWebApp.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.DB = _context;
 
-            DateTime fechaNacimiento = new DateTime(2000,09,15);
-            var cliente = new Cliente("1","David Enrique","Palacios Garcia","15-09-2000");
-
-            ViewBag.Cosa = "Cosa Dinamica";
-
-            return View(cliente);
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 
