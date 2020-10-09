@@ -12,13 +12,59 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
     <link href="~/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
     <script src="~/lib/jquery-ui/jquery-ui.js"></script>
+    <style>
+        .titulo{
+            font-weight:lighter;
+        }
+        /*MEDIA QUERIES*/ 
+        /* #### Tablets y Escritorio #### */
+        @@media screen and (min-device-width: 768px), screen and (min-width: 1024px)
+        {
+            .titulo
+            { /* Titulos con fondo blanco y letras negras en tablets y escritorios*/
+                background-color: white;
+                color: black;
+            }
+             .tituloMedia
+            {
+                background-color: white;
+                color:blue;
+            }
+        }
+
+        /* #### Celulares #### */
+        @@media screen and (max-device-width: 480px) 
+        {
+            .titulo
+            {
+                /* Titulos con fondo negro y letras blancas en celular*/
+                background-color: black;
+                color: white;   
+            }
+            .tituloMedia
+            {
+                background-color: white;
+                color:red;
+            }
+            .texto1{
+                text-align: left;
+            }
+            .texto2{
+                text-align: center;
+            }
+            .texto3{
+                text-align: right;
+            }
+        }
+
+    </style>
 
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestWebApp</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Test David Palacios</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
