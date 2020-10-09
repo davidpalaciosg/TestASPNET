@@ -5,7 +5,7 @@ Ejercicio realizado para probar conocimientos en ASP.NET, Telerik ASP.NET, Boots
 
 - HTML5, CSS3, JavaScript-jQuery
 - Bootstrap 4
-- ASP .NET CORE (C#)
+- ASP .NET CORE MVC (C#)
 - MS Azure Databases
 - Entity Framework Core
 
