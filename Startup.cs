@@ -26,7 +26,6 @@ namespace TestWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
             //Adicionar Contexto de la base de datos en MEMORIA
             //  services.AddDbContext<TestContext>(
             //      options => options.UseInMemoryDatabase(databaseName: "testDB")

@@ -1,0 +1,12 @@
+Lista de Componentes Telerik presentes en MVCTelerikApp
+Referencias: Kendo.MVC
+Scripts:  kendo.modernizr.custom.js C:\Users\Usuario\source\repos\TelerikMvcApp1\TelerikMvcApp1\Scripts\kendo.modernizr.custom.js
+         modernizr: C:\Users\Usuario\source\repos\TelerikMvcApp1\TelerikMvcApp1\Scripts\modernizr-2.8.3.js
+Layout
+<link href="https://kendo.cdn.telerik.com/2020.3.915/styles/kendo.bootstrap-v4.min.css" rel="stylesheet" type="text/css" />
+<script src="https://kendo.cdn.telerik.com/2020.3.915/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2020.3.915/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2020.3.915/js/kendo.all.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2020.3.915/js/kendo.aspnetmvc.min.js"></script>
+<script src="~/js/kendo.modernizr.custom.js"></script>
+

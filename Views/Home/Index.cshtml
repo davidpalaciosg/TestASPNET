@@ -26,5 +26,22 @@
         <p class="texto3">Este texto está alineado a la derecha en celular</p>
     </div>
 </div>
-
+<div class="text-center">
+    <h2>Kendo UI Grid</h2>
+    @* @(Html.Kendo().Grid<TestWebApp.Models.Producto>()
+            .Name("grid")
+            .Columns(columns =>
+            {
+                columns.Bound(c => c.ProductID).Width(100);
+                columns.Bound(c => c.ProductName).Width(300);
+                columns.Bound(c => c.UnitPrice).Width(100);
+                columns.Bound(c => c.Discontinued).Width(200);
+            })
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .Read(read => read.Action("Select", "Home"))
+            )
+        )
+    *@
+</div>
 
